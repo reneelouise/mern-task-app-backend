@@ -4,16 +4,20 @@ const connectDB = require("./config/connectDB");
 const taskRoutes = require("./routes/taskRoutes");
 const cors = require("cors");
 
-
 const app = express();
-
 
 // Middlewares
 
-app.use(cors({origin: ['http://localhost:3000/', "https://mern-task-app-tjuh.onrender.com" ]}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000/",
+      "https://mern-task-app-tjuh.onrender.com/",
+    ],
+  })
+);
 app.use(express.json()); // helps us to access the req.body and interpret it
 app.use(taskRoutes);
-
 
 // const logger = (req, res, next) => {   // next is added as an argument to give permission to the async funtion in the create task post req to run
 //     console.log("Middleware ran")
