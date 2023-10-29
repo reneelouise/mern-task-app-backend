@@ -11,13 +11,7 @@ const app = express();
 // Middlewares
 
 app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5000",
-      "https://mern-task-app-tjuh.onrender.com"
-    ],
-  })
+  cors()
 );
 app.use(express.json()); // helps us to access the req.body and interpret it
 app.use(taskRoutes);
